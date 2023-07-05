@@ -1,0 +1,4 @@
+./init
+build.sh
+run.sh
+fake_server
