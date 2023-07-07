@@ -3,10 +3,14 @@ package main
 import (
 	"fake_server/core"
 	"fake_server/handlers"
+	"flag"
 	"net/http"
 )
 
+var port = flag.Int64("port", 10015, "Port open in server")
+
 func main() {
+	flag.Parse()
 	core.InitServer()
 	defer core.ReleaseServer()
 
@@ -15,5 +19,5 @@ func main() {
 	core.Handle(http.MethodPost, "/listAccount", handlers.ListAccount)
 	core.Handle(http.MethodPost, "/removeAccount", handlers.RemoveAccount)
 
-	core.Start(10015)
+	core.Start(*port)
 }

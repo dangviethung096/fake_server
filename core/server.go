@@ -21,6 +21,7 @@ func InitServer() {
 }
 
 func Start(port int64) error {
+	fmt.Println("Run server in port: ", port)
 	return server.engine.Run(fmt.Sprintf(":%d", port))
 }
 
