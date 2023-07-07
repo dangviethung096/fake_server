@@ -15,6 +15,6 @@ WORKDIR /app
 
 RUN CGO_ENABLED=1
 COPY --from=builder /fake_server/fake_server /app/fake_server
-COPY --from=builder /fake_server/data/fake.db /app/data/fake.db
+RUN mkdir data
 
 CMD [ "/app/fake_server" ]
