@@ -17,3 +17,6 @@ type ListAccountRequest struct {
 type RemoveAccountRequest struct {
 	Username string `json:"username"`
 }
+
+type RemoveAllAccount struct {
+}

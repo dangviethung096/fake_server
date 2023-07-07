@@ -18,6 +18,7 @@ func main() {
 	core.Handle(http.MethodPost, "/addAccount", handlers.AddAccount)
 	core.Handle(http.MethodPost, "/listAccount", handlers.ListAccount)
 	core.Handle(http.MethodPost, "/removeAccount", handlers.RemoveAccount)
+	core.Handle(http.MethodPost, "/removeAllAccount", handlers.RemoveAllAccount)
 
 	core.Start(*port)
 }

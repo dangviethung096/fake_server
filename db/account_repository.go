@@ -70,3 +70,12 @@ func RemoveAccount(username string) error {
 	}
 	return nil
 }
+
+func RemoveAllAccount() error {
+	query := `DELETE FROM account`
+	_, err := core.ExecDB(query)
+	if err != nil {
+		return err
+	}
+	return nil
+}

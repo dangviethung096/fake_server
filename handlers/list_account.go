@@ -22,7 +22,9 @@ func ListAccount(c *gin.Context) {
 		return
 	}
 
-	res := &model.ListAccountResponse{}
+	res := &model.ListAccountResponse{
+		Accounts: []model.Account{},
+	}
 	for _, account := range accounts {
 		res.Accounts = append(res.Accounts, model.Account{
 			Username: account.Username,
