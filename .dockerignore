@@ -3,3 +3,4 @@ build.sh
 run.sh
 fake_server
 data/**
+run_local.sh
