@@ -13,6 +13,7 @@ func main() {
 	core.Handle(http.MethodPost, "/login", handlers.Login)
 	core.Handle(http.MethodPost, "/addAccount", handlers.AddAccount)
 	core.Handle(http.MethodPost, "/listAccount", handlers.ListAccount)
+	core.Handle(http.MethodPost, "/removeAccount", handlers.RemoveAccount)
 
 	core.Start(10015)
 }

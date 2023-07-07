@@ -61,3 +61,12 @@ func CreateAccount(account *Account) error {
 
 	return nil
 }
+
+func RemoveAccount(username string) error {
+	query := `DELETE FROM account WHERE username = ?`
+	_, err := core.ExecDB(query, username)
+	if err != nil {
+		return err
+	}
+	return nil
+}

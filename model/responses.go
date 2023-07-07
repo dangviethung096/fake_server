@@ -21,3 +21,10 @@ type Account struct {
 type ListAccountResponse struct {
 	Accounts []Account `json:"accounts"`
 }
+
+type RemoveAccountResponse struct {
+	Username string `json:"username"`
+	Password string `json:"password"`
+	Created  string `json:"created"`
+	Website  string `json:"website"`
+}
