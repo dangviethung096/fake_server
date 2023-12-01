@@ -1,0 +1,34 @@
+debug: true
+server:
+  port: 8080
+context:
+  timeout: 6000
+database:
+  file_path: "./data/fake.db"
+rabbitmq:
+  amqp_server_url: amqp://guest:guest@localhost:5672
+  retry_time: 3
+  emd_queue_config:
+    EXCHANGE_NAME: emds
+    EXCHANGE_TYPE: direct
+    REFUND_EMD:
+      ROUTING_KEY: emds.refund_emds
+      QUEUE_NAME: refund_emds
+  ticket_queue_config:
+    EXCHANGE_NAME: ticket
+    EXCHANGE_TYPE: direct
+    ISSUE_TICKET:
+      ROUTING_KEY: ticket.issue_ticket
+      QUEUE_NAME: issue_ticket
+redis:
+  host: localhost
+  port: 6379
+http_client:
+  retry_times: 3
+  wait_times: 2000 # Miliseconds
+scheduler:
+  task_doing_expiration: 30
+  delay: 0
+  interval: 20
+  bucket_size: 60
+  task_timeout: 120
