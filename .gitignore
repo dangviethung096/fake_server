@@ -2,3 +2,4 @@
 .DS_Store
 go.work.sum
 go.sum
+fake.db
