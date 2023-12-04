@@ -1,3 +1,5 @@
 .vscode
 .git
 account_service/fake_server
+build.sh
+run.sh
