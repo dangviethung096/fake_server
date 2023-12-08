@@ -14,6 +14,8 @@ func main() {
 	core.Init(*configFile)
 	defer core.Release()
 
+	core.UserCorsMiddleware()
+
 	core.RegisterAPI("/login", http.MethodPost, handlers.Login)
 	core.RegisterAPI("/addAccount", http.MethodPost, handlers.AddAccount)
 	core.RegisterAPI("/listAccount", http.MethodPost, handlers.ListAccount)
