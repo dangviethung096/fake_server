@@ -110,7 +110,7 @@ func Start() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		routeList := routeMap[r.URL.Path]
 		for _, route := range routeList {
-			if route.Method == r.Method {
+			if route.Method == r.Method || r.Method == http.MethodOptions {
 				route.handler(w, r)
 				return
 			}

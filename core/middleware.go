@@ -8,7 +8,7 @@ func corsMiddleware(ctx *Context) HttpError {
 	ctx.rw.Header().Set("Access-Control-Allow-Headers", "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
 
 	if ctx.Method == http.MethodOptions {
-		ctx.rw.WriteHeader(http.StatusOK)
+		ctx.rw.WriteHeader(http.StatusNoContent)
 		return nil
 	}
 
