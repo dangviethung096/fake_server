@@ -6,7 +6,7 @@ import (
 
 	"database/sql"
 
-	_ "github.com/mattn/go-sqlite3"
+	_ "github.com/glebarez/go-sqlite"
 )
 
 type DBInfo struct {
@@ -28,7 +28,7 @@ func openDBConnection(dbInfo DBInfo) dbSession {
 	// Connect to postgres database and return session
 	connectStr := dbInfo.buildConnectionString()
 	fmt.Printf("Connect to sqlite database: %s\n", connectStr)
-	db, err := sql.Open("sqlite3", connectStr)
+	db, err := sql.Open("sqlite", connectStr)
 	if err != nil {
 		log.Panicf("Connect to database fail: %v", err)
 	}

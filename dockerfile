@@ -1,5 +1,4 @@
 FROM golang:alpine AS application
-EXPOSE 10015
 
 FROM golang:alpine AS builder
 RUN apk add --no-cache --update gcc g++
