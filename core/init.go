@@ -119,10 +119,18 @@ func Start() {
 	})
 
 	// Listen and serve
-	LoggerInstance.Info("Start server at port: %d", Config.Server.Port)
-	err := http.ListenAndServe(fmt.Sprintf(":%d", Config.Server.Port), nil)
+
+	go func() {
+		LoggerInstance.Info("Start server at port: %d", Config.Server.Port)
+		err := http.ListenAndServe(fmt.Sprintf(":%d", Config.Server.Port), nil)
+		if err != nil {
+			LoggerInstance.Error("ListenAndServe fail: ", err)
+		}
+	}()
+	LoggerInstance.Info("Start server at port: 8081")
+	err := http.ListenAndServeTLS(":8081", "server.crt", "server.key", nil)
 	if err != nil {
-		log.Fatalln("ListenAndServe fail: ", err)
+		log.Fatalln("ListenAndServeTLS fail: ", err)
 	}
 }
 
