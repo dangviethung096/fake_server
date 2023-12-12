@@ -1,1 +1,1 @@
-docker run -p 10015:10015 --name fake -d fake_server:latest
+docker run -p 8080:8080 -p 8081:8081 -v /home/nghinv/data:/app/data --name fake -d fake_server:latest

@@ -8,10 +8,13 @@ import (
 )
 
 func AddAccount(ctx *core.Context, request *model.AddAccountRequest) (core.HttpResponse, core.HttpError) {
+	now := time.Now()
 	account := db.Account{
 		Username: request.Username,
 		Password: request.Password,
 		Website:  request.Website,
+		Created:  now,
+		Updated:  now,
 	}
 
 	err := db.CreateAccount(ctx, &account)
