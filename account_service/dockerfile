@@ -4,7 +4,8 @@ FROM golang:alpine AS builder
 RUN apk add --no-cache --update gcc g++
 
 WORKDIR /fake_server
-COPY . .
+COPY core core
+COPY account_service account_service
 
 WORKDIR /fake_server/account_service
 RUN go mod tidy
