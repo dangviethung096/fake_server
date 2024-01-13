@@ -1,0 +1,20 @@
+FROM golang:alpine AS application
+
+FROM golang:alpine AS builder
+RUN apk add --no-cache --update gcc g++
+
+WORKDIR /fake_server
+COPY fake_web fake_web
+
+WORKDIR /fake_server/fake_web
+RUN go mod tidy
+RUN CGO_ENABLED=1 go build
+
+FROM application
+WORKDIR /app
+
+RUN CGO_ENABLED=1
+
+COPY --from=builder /fake_server/fake_web/fake_web /app/fake_web
+
+CMD [ "/app/fake_web" ]
