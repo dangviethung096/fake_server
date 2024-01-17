@@ -15,6 +15,8 @@ WORKDIR /app
 
 RUN CGO_ENABLED=1
 
-COPY --from=builder /fake_server/fake_web/fake_web /app/fake_web
+COPY --from=builder /fake_server/fake_web/fake_web /app
+COPY --from=builder /fake_server/fake_web/render_html /app/render_html
+COPY --from=builder /fake_server/fake_web/cert /app/cert
 
 CMD [ "/app/fake_web" ]
